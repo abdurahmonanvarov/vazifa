@@ -43,13 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
   delit.forEach(function (delitItm) {
     delitItm.addEventListener("click", function () {
       let isDelit = confirm("Are sure delet info");
+      let nik = getData();
       if (isDelit) {
         this.parentNode.parentNode.remove();
         let id = this.getAttribute('data-id')
-        todos = todos.filter(function(el){
+        nik = nik.filter(function(el){
             return el.id != id
         })
-        localStorage.setItem('todos', JSON.stringify(todos))
+        localStorage.setItem('todos', JSON.stringify(nik))
       }
     });
   });
